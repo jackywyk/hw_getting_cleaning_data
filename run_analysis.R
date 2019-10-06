@@ -53,6 +53,6 @@ write.csv(data_set,'./result.csv')
 library(dplyr)
 data_summary=group_by(data_set,Activity,PersonID)
 data_summary=summarise_each(data_summary,funs=mean)
-write.csv(data_summary,'./summary.csv')
+write.table(data_summary,'./summary.txt',row.names=FALSE)
 nrow(data_summary)
 #data_training
