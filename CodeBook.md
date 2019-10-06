@@ -1,12 +1,5 @@
 dataset, training data & test data
 header:
-Activity,
-	WALKING
-	WALKING_UPSTAIRS
-	WALKING_DOWNSTAIRS
-	SITTING
-	STANDING
-	LAYING
 PersonID,1-30
 tBodyAcc-mean()-X
 tBodyAcc-mean()-Y
@@ -94,15 +87,14 @@ angle(tBodyGyroJerkMean,gravityMean)
 angle(X,gravityMean)
 angle(Y,gravityMean)
 angle(Z,gravityMean)
-
+Activity,
+	WALKING
+	WALKING_UPSTAIRS
+	WALKING_DOWNSTAIRS
+	SITTING
+	STANDING
+	LAYING
 data_summary
-Activity,
-	WALKING
-	WALKING_UPSTAIRS
-	WALKING_DOWNSTAIRS
-	SITTING
-	STANDING
-	LAYING
 PersonID,1-30
 tBodyAcc-mean()-X
 tBodyAcc-mean()-Y
@@ -190,7 +182,13 @@ angle(tBodyGyroJerkMean,gravityMean)
 angle(X,gravityMean)
 angle(Y,gravityMean)
 angle(Z,gravityMean)
-
+Activity,
+	WALKING
+	WALKING_UPSTAIRS
+	WALKING_DOWNSTAIRS
+	SITTING
+	STANDING
+	LAYING
 
 
 

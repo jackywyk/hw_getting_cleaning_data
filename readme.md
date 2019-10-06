@@ -19,8 +19,8 @@ run_analysis.R - the script to perform analysis
 #Step10: Reading training activities
 #Step11: Reading test activities
 #Step12: Merging training and test activities data
-#Step13:Connect activities ID to activities.txt
-#Step14: Merging activities data to dataset
+#Step13: Merging activities data to dataset
+#Step14: Connect activities ID to activities.txt
 #Step15: Export to create codebook
 #Step16: Summarized the result group by personal and activity
 
