@@ -40,17 +40,18 @@ activities_test=read.csv(file,header=FALSE,sep="")
 #Step12: Merging training and test activities data
 activities=rbind(activities_training,activities_test)
 names(activities)='activities_id'
-#Step13:Connect activities ID to activities.txt
+#Step13: Merging activities data to dataset
+data_set=cbind(activities,data_set)
+#Step14:Connect activities ID to activities.txt
 file="./activity_labels.txt"
 label_activities=read.csv(file,header=FALSE,sep="")
 names(label_activities)[1:2]=c('activities_id','Activity')
-data_activities=merge(activities,label_activities)
-#Step14: Merging activities data to dataset
-data_set=cbind(data_activities[2],data_set)
+data_activities=merge(data_set,label_activities,by.x = "activities_id", by.y = "activities_id",sort=TRUE)
 #Step15: Export to create codebook
+library(dplyr)
+data_set=select(data_activities,-c(activities_id))
 write.csv(data_set,'./result.csv')
 #Step16: Summarized the result group by personal and activity
-library(dplyr)
 data_summary=group_by(data_set,Activity,PersonID)
 data_summary=summarise_each(data_summary,funs=mean)
 write.table(data_summary,'./summary.txt',row.names=FALSE)
