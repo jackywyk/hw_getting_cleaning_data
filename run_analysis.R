@@ -54,6 +54,7 @@ write.csv(data_set,'./result.csv')
 #Step16: Summarized the result group by personal and activity
 data_summary=group_by(data_set,Activity,PersonID)
 data_summary=summarise_each(data_summary,funs=mean)
+write.csv(data_summary,'./summary.csv')
 write.table(data_summary,'./summary.txt',row.names=FALSE)
 data_summary
 #data_training
