@@ -18,3 +18,36 @@ data_set=rbind(data_training,data_test)
 file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/features.txt"
 features=read.csv(file,header=FALSE,sep="")[2]
 names(data_set)=features[ ,1]
+#Step5: Correspoding person subject (training)
+file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/train/subject_train.txt"
+person_training=read.csv(file,header=FALSE,sep="")
+#Step6: Correspoding person subject (training)
+file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/test/subject_test.txt"
+person_test=read.csv(file,header=FALSE,sep="")
+#Step7: Merging training and test person data
+person=rbind(person_training,person_test)
+#Step8: Merging PersonID to data_set
+names(person)="PersonID"
+data_set=cbind(person,data_set)
+#Step9: Reading training activities
+file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/train/Y_train.txt"
+activities_training=read.csv(file,header=FALSE,sep="")
+#Step10: Reading test activities
+file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/test/Y_test.txt"
+activities_test=read.csv(file,header=FALSE,sep="")
+#Step11: Merging training and test activities data
+activities=rbind(activities_training,activities_test)
+names(activities)='activities_id'
+#Step12:Connect activities ID to activities.txt
+file="C:/Users/jacky/Documents/Course/Data Cleaning/Data/UCI HAR Dataset/activity_labels.txt"
+label_activities=read.csv(file,header=FALSE,sep="")
+names(label_activities)[1:2]=c('activities_id','Activity')
+label_activities
+data_activities=merge(activities,label_activities)
+#Step13: Merging activities data to dataset
+data_set=cblind(data_activities$Activity,data_set)
+#names(data_set)
+nrow(data_activities)
+nrow(person)
+nrow(data_set)
+#data_training
